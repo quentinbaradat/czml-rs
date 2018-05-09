@@ -3,7 +3,7 @@
 A library for writing CZML content in rust for use with Cesium.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/quentinbaradat/czml-rs/master/resources/czml_logo_github.png" alt="Project logo">
+    <img src="https://raw.githubusercontent.com/quentinbaradat/czml-rs/master/resources/logo.png" alt="Project logo">
 </p>
 
 ## Contribution
