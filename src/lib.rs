@@ -59,6 +59,13 @@ pub struct Packet {
     pub description: Option<CzmlString>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub clock: Option<Clock>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub version: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub availability: Option<Vec<TimeInterval>>,
+    // ???
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub properties: Option<HashMap<String, String>>,
 }
 
 #[derive(Serialize)]
