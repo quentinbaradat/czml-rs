@@ -131,7 +131,6 @@ impl Serialize for TimeInterval {
 }
 
 #[derive(Serialize)]
-#[serde(tag = "type")]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum ClockRange {
     Unbounded,
@@ -140,7 +139,6 @@ pub enum ClockRange {
 }
 
 #[derive(Serialize)]
-#[serde(tag = "type")]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum ClockStep {
     TickDependent,
