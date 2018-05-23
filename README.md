@@ -6,6 +6,8 @@ A library for writing CZML content in rust for use with Cesium.
     <img src="https://raw.githubusercontent.com/quentinbaradat/czml-rs/master/resources/logo.png" alt="Project logo">
 </p>
 
+** WORK IN PROGRESS - THIS CRATE IS UNDER DEVELOPMENT AND THE CURRENT FEATURES ARE NOT STABLE **
+
 ## Contribution
 
 Contribution is highly welcome!
