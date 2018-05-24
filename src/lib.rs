@@ -400,18 +400,18 @@ pub struct EyeOffset {
 #[serde(rename_all = "camelCase")]
 pub struct HorizontalOrigin {
     #[serde(skip_serializing_if = "Option::is_none")]
-    horizontal_origin: Option<String>,
+    pub horizontal_origin: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    reference: Option<String>,
+    pub reference: Option<String>,
 }
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct VerticalOrigin {
     #[serde(skip_serializing_if = "Option::is_none")]
-    vertical_origin: Option<String>,
+    pub vertical_origin: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    reference: Option<String>,
+    pub reference: Option<String>,
 }
 
 
