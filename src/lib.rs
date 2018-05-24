@@ -75,6 +75,8 @@ pub struct Packet {
     pub orientation: Option<Orientation>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub view_from: Option<ViewFrom>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub billboard: Option<Billboard>,
 }
 
 #[derive(Serialize)]
