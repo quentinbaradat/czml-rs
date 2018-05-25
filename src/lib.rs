@@ -77,6 +77,8 @@ pub struct Packet {
     pub view_from: Option<ViewFrom>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub billboard: Option<Billboard>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub polyline: Option<Polyline>
 }
 
 #[derive(Serialize)]
@@ -414,6 +416,90 @@ pub struct VerticalOrigin {
     pub reference: Option<String>,
 }
 
+// TODO(Quentin)
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Polyline {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub show: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub positions: Option<PositionList>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub width: Option<f64>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub granularity: Option<f64>,
+    #[serde(skip_serializing_if = "Option::is_none")]   
+    pub material: Option<PolylineMaterial>,
+    #[serde(skip_serializing_if = "Option::is_none")] 
+    pub follow_surface: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")] 
+    pub shadows: Option<ShadowMode>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub depth_fail_material: Option<PolylineMaterial>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub distance_display_condition: Option<DistanceDisplayCondition>
+}
+
+// TODO(Quentin) : fields are missing
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PositionList {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reference_frame: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub references: Option<Vec<String>>,
+}
+
+// TODO(Quentin) : fields are missing
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PolylineMaterial {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    solid_color: Option<SolidColorMaterial>,
+}
+
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SolidColorMaterial {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    color: Option<Color>,
+}
+
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ShadowMode {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    shadow_mode: Option<ShadowModeValue>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    reference: Option<String>,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum ShadowModeValue {
+    Disabled,
+    Enabled,
+    CastOnly,
+    ReceiveOnly
+}
+
+// TODO(Quentin) : fields are missing & rgba to impl
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Color {
+    #[serde(flatten)]
+    pub interpolatable_property: Option<InterpolatableProperty>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub rgba: Option<Vec<u8>>,
+}
+
+// TODO(Quentin) : fields are missing
+#[derive(Default, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DistanceDisplayCondition {
+    #[serde(flatten)]
+    pub interpolatable_property: Option<InterpolatableProperty>,
+}
 
 pub mod helper {
 
