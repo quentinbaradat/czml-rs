@@ -455,23 +455,23 @@ pub struct PositionList {
 #[serde(rename_all = "camelCase")]
 pub struct PolylineMaterial {
     #[serde(skip_serializing_if = "Option::is_none")]
-    solid_color: Option<SolidColorMaterial>,
+    pub solid_color: Option<SolidColorMaterial>,
 }
 
 #[derive(Default, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SolidColorMaterial {
     #[serde(skip_serializing_if = "Option::is_none")]
-    color: Option<Color>,
+    pub color: Option<Color>,
 }
 
 #[derive(Default, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ShadowMode {
     #[serde(skip_serializing_if = "Option::is_none")]
-    shadow_mode: Option<ShadowModeValue>,
+    pub shadow_mode: Option<ShadowModeValue>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    reference: Option<String>,
+    pub reference: Option<String>,
 }
 
 #[derive(Serialize)]
